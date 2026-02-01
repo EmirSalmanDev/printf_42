@@ -1,52 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   print_alpha.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esalman <esalman@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/31 12:37:51 by esalman           #+#    #+#             */
-/*   Updated: 2026/02/01 20:40:22 by esalman          ###   ########.fr       */
+/*   Created: 2026/02/01 20:23:18 by esalman           #+#    #+#             */
+/*   Updated: 2026/02/01 20:42:47 by esalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <unistd.h>
 
-ssize_t	router(const char type, va_list args)
+static ssize_t	put_char(int c)
+{
+	unsigned char	casted_c;
+
+	casted_c = (unsigned char)c;
+	return (write(1, &casted_c, 1));
+}
+
+static ssize_t	put_str(char *str)
 {
 	ssize_t	count;
 
 	count = 0;
-	if (type == 'c' || type == 's')
-		count = print_alpha(type, args);
-	else if (type == '%')
-		count = write(1, "%", 1); // %%
+	if (str == NULL)
+		return (write(1, "(null)", 6));
+	while (*str)
+	{
+		count += write(1, str, 1);
+		str++;
+	}
 	return (count);
 }
 
-int	ft_printf(const char *input, ...)
+// kopya liste değil orjinal liste 1 adım ilerlesin
+ssize_t	print_alpha(const char type, va_list *stack)
 {
-	int		count;
-	int		i;
-	va_list	args;
+	ssize_t	count;
 
-	i = 0;
 	count = 0;
-	va_start(args, input);
-	while (input[i])
-	{
-		if (input[i] == '%')
-		{
-			count += ft_router(input[i + 1], args);
-			i++;
-		}
-		else
-		{
-			count += write(1, &input[i], 1);
-		}
-		i++;
-	}
-	va_end(args);
+	if (type == 'c')
+		count = put_char(va_arg(*stack, int));
+	else if (type == 's')
+		count = put_str(va_arg(*stack, char *));
 	return (count);
 }

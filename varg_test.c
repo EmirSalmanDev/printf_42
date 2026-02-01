@@ -33,7 +33,7 @@ int	sum(int count, ...)
 	i = 0;
 	while (i < count)
 	{
-		total += va_arg(args, int); // sıradaki int
+		total += va_arg(args, int); // sıradan kaç byte okunacak
 		i++;
 	}
 	va_end(args); // BİTTİ
