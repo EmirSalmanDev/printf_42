@@ -6,20 +6,22 @@
 /*   By: esalman <esalman@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 12:37:51 by esalman           #+#    #+#             */
-/*   Updated: 2026/02/01 20:40:22 by esalman          ###   ########.fr       */
+/*   Updated: 2026/02/01 21:20:06 by esalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <unistd.h>
 
-ssize_t	router(const char type, va_list args)
+ssize_t	ft_router(const char type, va_list *args)
 {
 	ssize_t	count;
 
 	count = 0;
 	if (type == 'c' || type == 's')
 		count = print_alpha(type, args);
+	else if (type == 'd' || type == 'i' || type == 'u')
+		count = print_num(type, args);
 	else if (type == '%')
 		count = write(1, "%", 1); // %%
 	return (count);
@@ -38,7 +40,7 @@ int	ft_printf(const char *input, ...)
 	{
 		if (input[i] == '%')
 		{
-			count += ft_router(input[i + 1], args);
+			count += ft_router(input[i + 1], &args);
 			i++;
 		}
 		else
