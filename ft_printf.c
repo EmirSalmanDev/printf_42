@@ -6,7 +6,7 @@
 /*   By: esalman <esalman@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 12:37:51 by esalman           #+#    #+#             */
-/*   Updated: 2026/02/01 21:20:06 by esalman          ###   ########.fr       */
+/*   Updated: 2026/02/02 16:13:05 by esalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ ssize_t	ft_router(const char type, va_list *args)
 		count = print_alpha(type, args);
 	else if (type == 'd' || type == 'i' || type == 'u')
 		count = print_num(type, args);
+	else if (type == 'p' || type == 'x' || type == 'X')
+		count = print_hex(type, args);
 	else if (type == '%')
-		count = write(1, "%", 1); // %%
+		count = write(1, "%", 1);
 	return (count);
 }
 

@@ -6,7 +6,7 @@
 /*   By: esalman <esalman@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 20:23:18 by esalman           #+#    #+#             */
-/*   Updated: 2026/02/01 20:42:47 by esalman          ###   ########.fr       */
+/*   Updated: 2026/02/02 16:12:39 by esalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static ssize_t	put_str(char *str)
 	return (count);
 }
 
-// kopya liste değil orjinal liste 1 adım ilerlesin
 ssize_t	print_alpha(const char type, va_list *stack)
 {
 	ssize_t	count;
