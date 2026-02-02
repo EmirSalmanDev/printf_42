@@ -6,12 +6,11 @@
 /*   By: esalman <esalman@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 12:37:51 by esalman           #+#    #+#             */
-/*   Updated: 2026/02/02 16:13:05 by esalman          ###   ########.fr       */
+/*   Updated: 2026/02/02 16:32:25 by esalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
 ssize_t	ft_router(const char type, va_list *args)
 {
@@ -46,9 +45,7 @@ int	ft_printf(const char *input, ...)
 			i++;
 		}
 		else
-		{
 			count += write(1, &input[i], 1);
-		}
 		i++;
 	}
 	va_end(args);

@@ -6,12 +6,11 @@
 /*   By: esalman <esalman@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 20:23:18 by esalman           #+#    #+#             */
-/*   Updated: 2026/02/02 16:12:39 by esalman          ###   ########.fr       */
+/*   Updated: 2026/02/02 16:29:50 by esalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
 static ssize_t	put_char(int c)
 {

@@ -6,12 +6,11 @@
 /*   By: esalman <esalman@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 15:55:39 by esalman           #+#    #+#             */
-/*   Updated: 2026/02/02 16:12:52 by esalman          ###   ########.fr       */
+/*   Updated: 2026/02/02 16:31:53 by esalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
 static ssize_t	put_hex(unsigned long n, char *base)
 {
@@ -36,7 +35,7 @@ static ssize_t	put_ptr(void *ptr)
 	return (count);
 }
 
-ssize_t	print_hex(char type, va_list *stack)
+ssize_t	print_hex(const char type, va_list *stack)
 {
 	ssize_t	count;
 
@@ -46,6 +45,6 @@ ssize_t	print_hex(char type, va_list *stack)
 	else if (type == 'X')
 		count = put_hex(va_arg(*stack, unsigned int), "0123456789ABCDEF");
 	else if (type == 'p')
-		count = print_ptr(va_arg(*stack, void *));
+		count = put_ptr(va_arg(*stack, void *));
 	return (count);
 }

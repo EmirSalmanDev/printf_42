@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esalman <esalman@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/28 13:43:56 by esalman           #+#    #+#             */
-/*   Updated: 2025/12/28 13:43:57 by esalman          ###   ########.fr       */
+/*   Created: 2026/02/02 16:22:18 by esalman           #+#    #+#             */
+/*   Updated: 2026/02/02 16:31:49 by esalman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	ft_isalnum(int c)
-{
-	if (ft_isalpha(c) || ft_isdigit(c))
-	{
-		return (1);
-	}
-	return (0);
-}
+# include <stdarg.h>
+# include <unistd.h>
+
+int		ft_printf(const char *input, ...);
+
+ssize_t	print_alpha(const char type, va_list *stack);
+ssize_t	print_num(const char type, va_list *stack);
+ssize_t	print_hex(const char type, va_list *stack);
+
+#endif
