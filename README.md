@@ -1,5 +1,28 @@
 *This project has been created as part of the 42 curriculum by esalman.*
 
+<div align="center">
+  <a href="https://github.com/EmirSalmanDev/printf_42">
+    <img src="https://github.com/ayogun/42-project-badges/blob/main/badges/ft_printfe.png" alt="FT_PRINTF Logo" width="200">
+  </a>
+
+  <h1>FT_PRINTF</h1>
+
+  <p>
+    <b>Reimplementation of the C printf function.</b>
+  </p>
+
+  <p>
+    <a href="https://github.com/EmirSalmanDev/printf_42">
+      <img src="https://img.shields.io/badge/Language-C-blue?style=for-the-badge&logo=c" alt="C Language">
+    </a>
+    <a href="#">
+      <img src="https://img.shields.io/badge/Score-100%2F100-success?style=for-the-badge" alt="Score">
+    </a>
+  </p>
+</div>
+
+---
+
 # ft_printf
 
 ## Description
