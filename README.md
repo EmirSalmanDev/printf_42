@@ -23,8 +23,6 @@
 
 ---
 
-# ft_printf
-
 ## Description
 
 **ft_printf** is a custom implementation of the standard C `printf()` function. The project focuses on learning variadic functions, low-level output handling, and modular C design.
